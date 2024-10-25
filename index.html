@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="articulo.html">Artículos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="carrusel">
+            <img id="imagenCarrusel" src="images/img1.jpg" alt="Imagen 1">
+            <div>
+                <button id="anterior">Anterior</button>
+                <button id="siguiente">Siguiente</button>
+            </div>
+        </section>
+        <section>
+            <h1>Bienvenido a nuestro sitio web</h1>
+            <p>Aquí encontrarás información sobre nuestros productos y servicios.</p>
+        </section>
+    </main>
+    <script>
+        const images = ["images/img1.jpg", "images/img2.jpg", "images/img3.jpg"];
+        let currentIndex = 0;
+
+        document.getElementById('siguiente').addEventListener('click', function() {
+            console.log('x')
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById('imagenCarrusel').src = images[currentIndex];
+        });
+
+        document.getElementById('anterior').addEventListener('click', function() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById('imagenCarrusel').src = images[currentIndex];
+        });
+    </script>
+</body>
+</html>
